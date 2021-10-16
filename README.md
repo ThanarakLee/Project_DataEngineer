@@ -50,8 +50,8 @@ Workshop from Roade to Data Enginer
 
 
 ## Report & Dashboard whit Google Data Studio
-ทำ Dashboard ดึงข้อมูลจาก BigQuery เพื่อนำมารายงานผลจากข้อมูลที่ได้
-
+ทำ Dashboard ดึงข้อมูลจาก BigQuery เพื่อนำมารายงานผล
+[Sarah Gift World Dashboard](https://datastudio.google.com/embed/u/0/reporting/6805ef50-0d56-4531-9cc3-7ec34a8843ea/page/O2KNC)
 
 
 ## Summary
