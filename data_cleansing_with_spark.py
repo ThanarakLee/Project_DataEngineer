@@ -33,18 +33,12 @@ sys.version_info
 # Get Spark version
 spark.version
 
-"""#### เชื่อมต่อ Google Drive
-
-เมื่อรันแล้วจะมีลิงค์ให้กด กรุณากดลิงค์ และเลือกบัญชี Google ของคุณ จากนั้นก็อปปี้โค้ดมาใส่ในกล่องข้อความ (หรือดูวิธีตามวีดิโอ Workshop ก็ได้ครับ)
-"""
 
 # เชื่อมต่อ Google colab กับ Google Drive
 from google.colab import drive
 drive.mount('/content/drive')
 
 """## Load data
-
-แก้ลิงค์ไฟล์ให้เป็นลิงค์ใน Google Drive ของคุณเอง มิฉะนั้นจะรันแล้ว Error (ดูวิธีได้จากในวีดิโอ Workshop)
 
 ใช้คำสั่ง `spark.read.csv` เพื่ออ่านข้อมูลจากไฟล์ CSV
 
@@ -106,10 +100,7 @@ dt.select("Quantity", "UnitPrice").describe().show()
 # Write Answer here
 dt.select("Quantity").summary().collect()[5]['Quantity']
 
-"""### ดู Summary แล้วเห็นอะไรบ้าง?
-- Missing values?
-- Mean, Min, Max
-
+"""
 ## EDA - Exploratory Data Analysis
 
 ### Non-Graphical EDA
@@ -118,24 +109,17 @@ dt.select("Quantity").summary().collect()[5]['Quantity']
 # Select text-based information
 dt.where(dt['Quantity'] < 0).show()
 
-"""### Exercise: 
-1. ลองเลือก Quantity ระหว่าง 50 - 120
-2. ลองเลือก UnitPrice ระหว่าง 0.1 - 0.5
-3. Quantity ระหว่าง 50 - 120 และ UnitPrice ระหว่าง 0.1 - 0.5
-"""
 
-# TODO: 1. Quantity 50 - 120
+# Quantity 50 - 120
 dt.where( (dt['Quantity'] > 50) & (dt['Quantity'] < 120) ).show()
 
-# TODO: 2. UnitPrice 0.1 - 0.5
+# UnitPrice 0.1 - 0.5
 dt.where( (dt['UnitPrice'] >= 0.1) & (dt['UnitPrice'] <= 0.5) ).show()
 
-# TODO: 3. Quantity 50 - 120 and UnitPrice 0.1 - 0.5
+# Quantity 50 - 120 and UnitPrice 0.1 - 0.5
 dt.where(dt['Quantity'].between(50,120) & dt['UnitPrice'].between(0.1,0.5)).show()
 
 """### Graphical EDA
-
-
 Spark ไม่ได้ถูกพัฒนามาเพื่องาน plot ข้อมูล เพราะฉะนั้นเราจะใช้ package `seaborn` `matplotlib` และ `pandas` ในการ plot ข้อมูลแทน
 """
 
@@ -161,7 +145,7 @@ plt.show()
 # Scatterplot
 dt_pd_subset.plot.scatter('UnitPrice', 'Quantity')
 
-"""#### Bonus: สร้าง interactive chart"""
+"""#### interactive chart"""
 
 # Plotly - interactive chart
 import plotly.express as px
@@ -207,15 +191,10 @@ dt_final.show()
 dt_final.printSchema()
 
 """## Data Cleansing with Spark
-
-### Anomalies Check
-
-#### Syntactical Anomalies
-**Lexical errors** เช่น พิมพ์ผิด
 """
 
 # Check country distinct values. Find something interesting?
-# ลองมาดูชื่อประเทศกัน เจออะไรบ้าง ?
+# ดูชื่อประเทศ
 dt_final.select("Country").distinct().show()
 
 dt_final.where(dt_final['Country'] == 'EIREs').show()
@@ -254,7 +233,6 @@ dt_incorrect_stockcode = dt_final_eire.subtract(dt_correct_stockcode)
 
 dt_incorrect_stockcode.show(10)
 
-"""> คุณเห็น Pattern ของ Stock Code ที่ไม่ถูกต้องหรือยัง?"""
 
 # ลบตัวอักษรตัวสุดท้ายออกจาก stock code
 from pyspark.sql.functions import regexp_replace
@@ -319,12 +297,8 @@ dt_sql_valid_price.show()
 dt_sql_valid_price = spark.sql("SELECT * FROM sales WHERE UnitPrice > 0 AND Quantity > 0")
 dt_sql_valid_price.show()
 
-"""### Exercise: 
-1. ลองเลือก Country USA ที่มี InvoiceDateTime ตังแต่วันที่ 2010-12-01 เป็นต้นไป และ UnitPrice เกิน 3.5 
-2. ลองเลือก Country France ที่มี InvoiceDateTime ตังแต่วันที่ 2010-12-05 เป็นต้นไป และ UnitPrice เกิน 5.5 และ Description มีคำว่า Box
-"""
 
-# TODO: Country USA ที่มี InvoiceDateTime ตั้งแต่วันที่ 2010-12-01 เป็นต้นไป และ UnitPrice เกิน 3.5
+# Country USA ที่มี InvoiceDateTime ตั้งแต่วันที่ 2010-12-01 เป็นต้นไป และ UnitPrice เกิน 3.5
 dt_sql_usa = spark.sql("""
 SELECT * FROM sales
   WHERE InvoiceDateTime >= '2010-12-01'
@@ -332,7 +306,7 @@ SELECT * FROM sales
   AND Country='USA'
 """).show()
 
-# TODO: Country France ที่มี InvoiceDateTime ตังแต่วันที่ 2010-12-05 เป็นต้นไป และ UnitPrice เกิน 5.5 และ Description มีคำว่า Box
+# Country France ที่มี InvoiceDateTime ตังแต่วันที่ 2010-12-05 เป็นต้นไป และ UnitPrice เกิน 5.5 และ Description มีคำว่า Box
 dt_sql_france = spark.sql("""
 SELECT * FROM sales
   WHERE UnitPrice > 5.5
@@ -354,20 +328,13 @@ dt_sql_valid_price.write.csv('Cleaned_Data_Now_Final.csv')
 # Write as 1 file (use single worker)
 dt_sql_valid_price.coalesce(1).write.csv('Cleaned_Data_Now_Final_Single.csv')
 
-"""### Bonus Exercise: อ่านไฟล์ที่มีหลาย Part
-เช่น
-- /content/Cleaned_Data.csv/part-00000-25a1e27a-a2b1-4553-b8ae-e05a6c574b59-c000.csv
-- /content/Cleaned_Data.csv/part-00001-25a1e27a-a2b1-4553-b8ae-e05a6c574b59-c000.csv
 
-ป.ล. เครื่องคอมพิวเตอร์แต่ละท่านจะสร้างชื่อไฟล์ไม่เหมือนกัน กรุณาเช็คชื่อไฟล์ในแท็บ Files ด้านซ้าย (หรือดูวิธีการได้จากวีดิโอ Workshop)
-"""
-
-# สำคัญ: แก้โค้ดด้านล่างนี้เป็นชื่อไฟล์ที่ Spark สร้างขึ้นมาใน Google Drive ของนะครับ เพราะชื่อไฟล์จะสุ่มสร้างออกมา ถ้ารันโดยไม่แก้เลยจะ Error
+# สำคัญ: แก้โค้ดด้านล่างนี้เป็นชื่อไฟล์ที่ Spark สร้างขึ้นมาใน Google Drive เพราะชื่อไฟล์จะสุ่มสร้างออกมา ถ้ารันโดยไม่แก้เลยจะ Error
 # อ่าน CSV ไฟล์ที่ 1
 part1 = spark.read.csv('/content/Cleaned_Data_Now_Final.csv/part-00000-5c261eef-4f45-41e6-a0ba-9d29af6f0a1f-c000.csv', header = True, inferSchema = True, )
 part1.count()
 
-# สำคัญ: แก้โค้ดด้านล่างนี้เป็นชื่อไฟล์ที่ Spark สร้างขึ้นมาใน Google Drive ของนะครับ เพราะชื่อไฟล์จะสุ่มสร้างออกมา ถ้ารันโดยไม่แก้เลยจะ Error
+# สำคัญ: แก้โค้ดด้านล่างนี้เป็นชื่อไฟล์ที่ Spark สร้างขึ้นมาใน Google Drive เพราะชื่อไฟล์จะสุ่มสร้างออกมา ถ้ารันโดยไม่แก้เลยจะ Error
 # อ่าน CSV ไฟล์ที่ 2
 part2 = spark.read.csv('/content/Cleaned_Data_Now_Final.csv/part-00001-b357b1dd-f38e-459c-83ff-6e73bd6ebb0d-c000.csv', header = True, inferSchema = True, )
 part2.count()
