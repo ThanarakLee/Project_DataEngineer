@@ -88,7 +88,6 @@ dag = DAG(
     schedule_interval=timedelta(days=1),
 )
 
-# TODO:Tasks
 
 # db_ingest
 t1 = PythonOperator(
@@ -106,7 +105,6 @@ t3 = PythonOperator(
 )
 
 
-# TODO: Dependencies
 
 t1
 
