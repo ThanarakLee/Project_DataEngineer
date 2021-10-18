@@ -89,7 +89,7 @@ dag = DAG(
     schedule_interval=timedelta(days=1),
 )
 
-# TODO:Tasks
+
 
 # db_ingest
 t1 = PythonOperator(
@@ -112,9 +112,6 @@ t3 = PythonOperator(
     dag=dag,
 )
 
-# TODO: load to BigQuery
 
-
-# TODO: Dependencies
 
 [t1, t2] >> t3
