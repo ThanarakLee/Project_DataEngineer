@@ -1,4 +1,4 @@
-# R2DE_workshop
+# Project Data Engineer
 Workshop from Roade to Data Enginer
 แสดงถึงขั้นตอนการทำงานของ Data Engineer ใน Workshop นี้จะใช้ Google Cloud Platform ในการทำงานเป็นหลัก
 
