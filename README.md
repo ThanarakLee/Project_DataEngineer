@@ -1,6 +1,5 @@
 # Project Data Engineer
-Workshop from Roade to Data Enginer
-แสดงถึงขั้นตอนการทำงานของ Data Engineer ใน Workshop นี้จะใช้ Google Cloud Platform ในการทำงานเป็นหลัก
+เป็น Project ที่แสดงถึงขั้นตอนการทำงานของ Data Engineer ในตัว Project นี้จะใช้ Google Cloud ในการทำงานเป็นหลัก
 
 ## สารบัญ
 * Data Collection with Python & Pandas
