@@ -1,5 +1,5 @@
 # Project Data Engineer
-เป็น Project ที่แสดงถึงขั้นตอนการทำงานของ Data Engineer ในตัว Project นี้จะใช้ Google Cloud PLatform และ Google Colab ในการทำงานเป็นหลัก
+เป็น Project ที่แสดงถึงขั้นตอนการทำงานของ Data Engineer ในตัว Project นี้จะใช้ Google Cloud Platform และ Google Colab ในการทำงานเป็นหลัก
 
 ## สารบัญ
 * Data Collection with Python & Pandas
