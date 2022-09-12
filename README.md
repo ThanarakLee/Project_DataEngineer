@@ -5,9 +5,9 @@
 * Data Collection with Python & Pandas
 * Data Cleansing with Spark
 * Upload files to Data Lake
-* Automated Data Pipeline whit Airflow
-* Big Data Warehouse whit Google BigQuery
-* Report & Dashboard whit Google Data Studio
+* Automated Data Pipeline with Airflow
+* Big Data Warehouse with Google BigQuery
+* Report & Dashboard with Google Data Studio
 
 ## Data Collection with Python & Pandas
 ทำ Data Collection ด้วย python โดยการเก็บข้อมูลจาก Database และ REST API ด้วย Python
