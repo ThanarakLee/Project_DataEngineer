@@ -1,4 +1,4 @@
-# Project Data Engineer
+# Data Engineer Project 
 เป็น Project ที่แสดงถึงขั้นตอนการทำงานของ Data Engineer ในตัว Project นี้จะใช้ Google Cloud Platform และ Google Colab ในการทำงานเป็นหลัก
 
 ## สารบัญ
