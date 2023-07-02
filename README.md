@@ -1,7 +1,8 @@
-# Data Engineer Project 
-เป็น Project ที่แสดงถึงขั้นตอนการทำงานของ Data Engineer ในตัว Project นี้จะใช้ Google Cloud Platform และ Google Colab ในการทำงานเป็นหลัก
+# Data Engineer Project
 
-## สารบัญ
+This project demonstrates the workflow of a Data Engineer. It utilizes the Google Cloud Platform and Google Colab as the main tools.
+
+## Table of Contents
 * Data Collection with Python & Pandas
 * Data Cleansing with Spark
 * Upload files to Data Lake
@@ -10,48 +11,36 @@
 * Report & Dashboard with Google Data Studio
 
 ## Data Collection with Python & Pandas
-ทำ Data Collection ด้วย python โดยการเก็บข้อมูลจาก Database และ REST API ด้วย Python
+Data collection is performed using Python, where data is gathered from databases and REST APIs.
 
 ### Input:
-- อ่านข้อมูลจาก MySQL
-- อ่านข้อมูลจาก REST API ด้วย Package Requests
+- Reading data from MySQL
+- Reading data from REST API using the Requests package
 
 ### Output:
-- Dataset ข้อมูลที่รวมแล้ว(CSV)
-
-
+- Consolidated dataset (CSV)
 
 ## Data Cleansing with Spark
-เป็นการทำข้อมูลให้มีความสะอาดใช้งานง่าย ใน workshop นี้จะใช้ PySpark, Spark และ Pandas เพื่อให้ข้อมูลของเรามีคุณภาพ
+Data cleansing aims to ensure data cleanliness and usability. In this workshop, PySpark, Spark, and Pandas are used to enhance data quality.
 
 ### Input:
-- ข้อมูลที่เราดึงมาแล้ว(CSV)
-- Notebook ที่รองรับ PySpark, Spark และ Pandas ในที่นี้ใช้ Google Colab
+- Previously gathered data (CSV)
+- Notebook supporting PySpark, Spark, and Pandas (e.g., Google Colab)
 
 ### Output:
-- ข้อมูลที่ทำความสะอาดเรียบร้อยแล้ว(CSV)
-
-
+- Cleaned data (CSV)
 
 ## Upload files to Data Lake
-การอัพโหลดไฟล์เข้า Data Lake ในที่นี้จะใช้ Google Cloud Platform อัพโหลดเข้า Google Cloud Storage 
+This section covers uploading files to a Data Lake using the Google Cloud Platform. Specifically, files are uploaded to Google Cloud Storage.
 
+## Automated Data Pipeline with Airflow
+Create a data pipeline in Airflow to automate data extraction. Google Cloud Composer is used for this purpose.
 
+## Big Data Warehouse with Google BigQuery
+Use Apache Airflow to load data into BigQuery automatically.
 
-# Automated Data Pipeline whit Airflow
-สร้าง Data Pipeline ใน Airflow เพื่อดึงข้อมูลแบบอัตโนมัติ ในที่นี้จะใช้ Google Cloud Composer ในการทำ
-
-
-
-# Big Data Warehouse whit Google BigQuery
-ใช้ Apache Airflow เพื่อโหลดข้อมูลเข้า BigQuery โดยอัตโนมัติ
-
-
-
-## Report & Dashboard whit Google Data Studio
-ทำ Dashboard ดึงข้อมูลจาก BigQuery เพื่อนำมารายงานผล
-[Sarah Gift World Dashboard](https://datastudio.google.com/embed/u/0/reporting/6805ef50-0d56-4531-9cc3-7ec34a8843ea/page/O2KNC)
-
+## Report & Dashboard with Google Data Studio
+Create a dashboard that retrieves data from BigQuery for reporting purposes. View the [Sarah Gift World Dashboard](https://datastudio.google.com/embed/u/0/reporting/6805ef50-0d56-4531-9cc3-7ec34a8843ea/page/O2KNC) as an example.
 
 ## Summary
-สร้าง Pipeline ในการดึงข้อมูลจาก Database กับ API มาลงที่ Data Lake และเมีการก็บไว้ใน Data Warehouse แล้วทำให้เป็น Automated หลังจากนั้นทำการดึงข้อมูลมาใช้ โดยการทำเป็น Visualisation
+This project involves creating a pipeline to extract data from databases and APIs, storing it in a Data Lake, and then loading it into a Data Warehouse. The process is automated, and the data can be visualized for analysis.
