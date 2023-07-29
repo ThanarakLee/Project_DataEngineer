@@ -1,6 +1,6 @@
 # DataFlow: Integrated End-to-End Data Engineering Project with GCP and Colab
 
-This project demonstrates the workflow of a Data Engineer. It utilizes the Google Cloud Platform and Google Colab as the main tools.
+This project demonstrates the workflow of a Data Engineer. It utilizes the Google Cloud Platform
 
 ## Table of Contents
 * Data Collection with Python & Pandas
