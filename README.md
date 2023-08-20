@@ -1,5 +1,9 @@
 # DataFlow: Integrated End-to-End Data Engineering Project with GCP and Colab
 
+<p align="center">
+  <img src="https://i.pcmag.com/imagery/reviews/02yVL9f8Jw1atwoG6sgFZDH-7.fit_scale.size_760x427.v1569482492.jpg" alt="GCP" />
+</p>
+
 This project demonstrates the workflow of a Data Engineer. It utilizes the Google Cloud Platform
 
 ## Table of Contents
